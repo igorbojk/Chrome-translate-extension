@@ -6,10 +6,12 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "axios": "^0.17.0",
+    "@vitalets/google-translate-api": "^2.8.0",
+    "axios": "^0.17.1",
     "element-ui": "^2.0.1",
     "lodash": "^4.17.4",
     "vue": "^2.5.2",
+    "vue-axios": "^2.1.4",
     "vue-meta": "^1.2.0",
     "vue-pouch": "^0.0.22",
     "vue-router": "^3.0.1",
