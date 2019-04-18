@@ -1,15 +1,16 @@
 <template>
     <div class="extension-language-select">
         <div class="extension-language-selected" @click="toggleDropdownShow()">
-            {{ selectedLanguage}}
+            <span>{{ selectedLanguage.title }}</span> <span>&#9662</span>
         </div>
         <div class="extension-language-dropdown" v-if="isShowDropdown">
             <div class="extension-language-option"
                  v-for="(lang, index) in languages"
                  :key="index"
                  @click="selectLang(lang)"
+                 v-bind:class="{'active': lang.key === selectedLanguage.key}"
             >
-                {{lang}}
+                {{lang.title}}
             </div>
         </div>
     </div>
@@ -22,17 +23,17 @@
       defaultLang: {
         type: String,
         'default': 'en'
+      },
+      languages: {
+        type: Array,
+        'default': () => ([])
       }
     },
     data () {
       return {
         isShowDropdown: false,
         selectedLanguage: 'en',
-        languages: [
-          'en',
-          'uk',
-          'ru'
-        ]
+        value: 'test'
       }
     },
     methods: {
@@ -47,6 +48,11 @@
     },
     mounted () {
       this.selectedLanguage = this.defaultLang
+    },
+    watch: {
+      defaultLang (value) {
+        this.selectedLanguage = value
+      }
     }
   }
 </script>
@@ -58,14 +64,35 @@
         width: 100%;
         .extension-language-selected{
             height: 32px;
-            background: green;
+            line-height: 32px;
+            padding: 0 8px;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: solid 1px lightblue;
+            border-radius: 4px;
         }
         .extension-language-dropdown{
+            border: solid 1px lightblue;
+            border-radius: 4px;
             position: absolute;
             top: 32px;
             left: 0;
             right: 0;
             background: white;
+            max-height: 120px;
+            overflow: auto;
+            z-index: 997;
+            .extension-language-option{
+                padding: 8px;
+                text-align: left;
+                &:hover,
+                &.active{
+                    cursor: pointer;
+                    background: lightblue;
+                }
+            }
         }
     }
 </style>

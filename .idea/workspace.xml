@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1071c8bd-d04d-478f-9d60-8726f02b3ce3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/content/extension-language-select.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/extension-language-select.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/extension-language-select.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/content/root.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/root.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +13,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/content/root.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="104" column="23" lean-forward="true" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+            <state relative-caret-position="39">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#754#3789#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -28,8 +37,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/content/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
+            <state relative-caret-position="108">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -37,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/content/extension-language-select.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="43" column="30" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="30" />
+            <state relative-caret-position="1620">
+              <caret line="90" column="17" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -58,6 +70,11 @@
       <find>ax</find>
       <find>google-translate-api</find>
       <find>translate</find>
+      <find>'en'</find>
+      <find>lement-ui</find>
+      <find>element-ui</find>
+      <find>import 'element-ui/lib/theme-chalk/index.css'</find>
+      <find>'uk'</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,7 +92,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="337" />
+    <option name="y" value="25" />
     <option name="width" value="1366" />
     <option name="height" value="694" />
   </component>
@@ -126,6 +143,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="chrome-translate-extension" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chrome-translate-extension" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="popup" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -169,12 +192,12 @@
       <updated>1555576067410</updated>
       <workItem from="1555576068799" duration="248000" />
       <workItem from="1555582494836" duration="535000" />
-      <workItem from="1555589474285" duration="9532000" />
+      <workItem from="1555589474285" duration="15005000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10315000" />
+    <option name="totallyTimeSpent" value="15788000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="694" extended-state="6" />
@@ -250,13 +273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@vitalets/google-translate-api/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
@@ -264,24 +280,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/popup/root.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/content/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        <state relative-caret-position="108">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/popup/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/content/extension-language-select.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="43" column="30" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="30" />
+        <state relative-caret-position="1620">
+          <caret line="90" column="17" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/content/root.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="104" column="23" lean-forward="true" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+        <state relative-caret-position="39">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#754#3789#0" />
+          </folding>
         </state>
       </provider>
     </entry>
