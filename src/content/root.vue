@@ -403,9 +403,24 @@
         this.isShowPopup = false
         if (document.getSelection().toString().length) {
           let selectionRect = window.getSelection().getRangeAt(0).getBoundingClientRect()
+          let left = 0
+          let width = 0
+          if (selectionRect.width < 132) {
+            width = 132 - 32
+            left = selectionRect.x + window.pageXOffset - ((132 - selectionRect.width) / 2)
+          } else {
+            width = selectionRect.width - 32
+            left = selectionRect.x + 16 + window.pageXOffset
+          }
+          if (document.body.clientWidth < (left + width)) {
+            left = selectionRect.x + window.pageXOffset - width
+          }
+          if (window.pageXOffset > left) {
+            left = selectionRect.x + window.pageXOffset
+          }
           this.blockStyle.top = `${selectionRect.y + selectionRect.height + window.pageYOffset + 16}px`
-          this.blockStyle.left = `${selectionRect.x + 16 + window.pageXOffset}px`
-          this.blockStyle.width = `${selectionRect.width - 32}px`
+          this.blockStyle.left = `${left}px`
+          this.blockStyle.width = `${width}px`
           this.inputText = document.getSelection().toString()
           this.isShowPopup = true
           this.isLoading = true
@@ -468,13 +483,12 @@
         z-index: 9999999;
         border-radius: 4px;
         border: solid 1px lightblue;
-        /*max-width: 300px;*/
-        /*width: auto;*/
         min-width: 132px;
         box-sizing: border-box;
         min-height: 100px;
         box-shadow: 1px 1px 12px black;
         padding: 12px 8px;
+        margin-bottom: 16px;
     }
     .extension-devider {
         width: 98%;
