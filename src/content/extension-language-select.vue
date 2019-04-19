@@ -1,7 +1,12 @@
 <template>
     <div class="extension-language-select">
         <div class="extension-language-selected" @click="toggleDropdownShow()">
-            <span>{{ selectedLanguage.title }}</span> <span>&#9662</span>
+            <span>
+                <i class="extension-language-selected-flag"
+                v-bind:class="selectedLanguage.key"></i>
+                <span>{{ selectedLanguage.title }}</span>
+            </span>
+            <span>&#9662</span>
         </div>
         <div class="extension-language-dropdown" v-if="isShowDropdown">
             <div class="extension-language-option"
@@ -72,6 +77,30 @@
             align-items: center;
             border: solid 1px lightblue;
             border-radius: 4px;
+            .extension-language-selected-flag{
+                display: inline-block;
+                margin-right: 8px;
+                width: 24px;
+                height: 16px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                &.en{
+                    background-image: url("../../static/icons/en.png");
+                }
+                &.de{
+                    background-image: url("../../static/icons/de.png");
+                }
+                &.uk{
+                    background-image: url("../../static/icons/uk.png");
+                }
+                &.ru{
+                    background-image: url("../../static/icons/ru.png");
+                }
+                &.fr{
+                    background-image: url("../../static/icons/fr.png");
+                }
+            }
         }
         .extension-language-dropdown{
             border: solid 1px lightblue;
