@@ -401,19 +401,19 @@
           return false
         }
         this.isShowPopup = false
-        if (document.getSelection().toString().length) {
+        if (document.getSelection().toString().trim().length) {
           let selectionRect = window.getSelection().getRangeAt(0).getBoundingClientRect()
           let left = 0
           let width = 0
-          if (selectionRect.width < 132) {
-            width = 132 - 32
-            left = selectionRect.x + window.pageXOffset - ((132 - selectionRect.width) / 2)
+          if (selectionRect.width < 232) {
+            width = 232
+            left = selectionRect.x + window.pageXOffset - ((232 - selectionRect.width) / 2)
           } else {
             width = selectionRect.width - 32
             left = selectionRect.x + 16 + window.pageXOffset
           }
           if (document.body.clientWidth < (left + width)) {
-            left = selectionRect.x + window.pageXOffset - width
+            left = selectionRect.x + window.pageXOffset - (width - selectionRect.width)
           }
           if (window.pageXOffset > left) {
             left = selectionRect.x + window.pageXOffset
