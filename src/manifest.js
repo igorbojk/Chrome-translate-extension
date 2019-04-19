@@ -24,12 +24,6 @@ module.exports = {
     default_title: 'title',
     default_popup: 'pages/popup.html'
   },
-  background: {
-    persistent: false,
-    page: 'pages/background.html'
-  },
-  devtools_page: 'pages/devtools.html',
-  options_page: 'pages/options.html',
   content_scripts: [{
     js: [
       'js/manifest.js',

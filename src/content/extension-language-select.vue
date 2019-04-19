@@ -42,9 +42,14 @@
       }
     },
     methods: {
+      /** Toggle dropdown showing */
       toggleDropdownShow () {
         this.isShowDropdown = !this.isShowDropdown
       },
+      /**
+       * Select current language
+       * @param {Object} lang - The current language
+       */
       selectLang (lang) {
         this.selectedLanguage = lang
         this.$emit('changeLang', lang)
@@ -55,6 +60,10 @@
       this.selectedLanguage = this.defaultLang
     },
     watch: {
+      /**
+       * Watcher for changes of default language
+       * @param {Object} value - The new value of language
+       */
       defaultLang (value) {
         this.selectedLanguage = value
       }

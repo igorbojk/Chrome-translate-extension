@@ -1,12 +1,11 @@
 {
-  "name": "vue-chrome-extension-template",
+  "name": "chrome-translate-extension",
   "version": "0.0.1",
-  "description": "vue.js chrome extension template (wcer)",
-  "author": "works.yura@gmail.com",
+  "description": "vue.js chrome extension translate",
+  "author": "devchallenge",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@vitalets/google-translate-api": "^2.8.0",
     "axios": "^0.17.1",
     "element-ui": "^2.0.1",
     "lodash": "^4.17.4",
@@ -14,7 +13,6 @@
     "vue-axios": "^2.1.4",
     "vue-meta": "^1.2.0",
     "vue-pouch": "^0.0.22",
-    "vue-router": "^3.0.1",
     "vuex": "^3.0.0"
   },
   "scripts": {

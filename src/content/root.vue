@@ -22,7 +22,10 @@
             <span v-else>
                 {{ outputText }}
             </span>
-
+        </div>
+        <div v-if="isShowVocabularyButtons()">
+            <span class="extension-vocabulary" @click="addToVocabulary()" v-if="!isHasInVocabulary()">Add to vocabulary</span>
+            <span class="extension-vocabulary" @click="removeFromVocabulary()" v-else>Remove from vocabulary</span>
         </div>
     </div>
 </template>
@@ -63,7 +66,8 @@
         inputLang: {title: 'English', key: 'en'},
         outputLang: {title: 'Ukrainian', key: 'uk'},
         languages: languages,
-        isLoading: true
+        isLoading: true,
+        vocabularies: []
       }
     },
     computed: {},
@@ -71,13 +75,19 @@
     },
     mounted () {
       this.isShowPopup = false
+      /**
+       * Add listener for mouseup
+       */
       document.addEventListener('mouseup', () => {
+        // if click was on translate-popup - return
         if (event.target.closest('div#translate-popup')) {
           event.preventDefault()
           return false
         }
         this.isShowPopup = false
+        // if we gave selecting text - get vocabulary && calculate popup position && translate text
         if (document.getSelection().toString().trim().length) {
+          this.getVocabularies()
           let selectionRect = window.getSelection().getRangeAt(0).getBoundingClientRect()
           let left = 0
           let width = 0
@@ -106,6 +116,7 @@
           this.isShowPopup = false
         }
       })
+      // Close popup on mouse down
       document.addEventListener('mousedown', (event) => {
         if (event.target.closest('div#translate-popup')) {
           event.preventDefault()
@@ -117,6 +128,15 @@
       })
     },
     methods: {
+      // Get vocabularies from storage
+      getVocabularies () {
+        chrome.storage.local.get(['extension-data'], (result) => {
+          if (result['extension-data'] && result['extension-data'].vocabularies && result['extension-data'].vocabularies.length) {
+            this.vocabularies = result['extension-data'].vocabularies
+          }
+        })
+      },
+      // Change input language
       changeInputLang (lang) {
         if (lang.key === this.outputLang.key) {
           this.outputLang = this.inputLang
@@ -125,6 +145,7 @@
         this.isLoading = true
         this.translate()
       },
+      // Change output language
       changeOutputLang (lang) {
         if (lang.key === this.inputLang.key) {
           this.inputLang = this.outputLang
@@ -133,6 +154,7 @@
         this.isLoading = true
         this.translate()
       },
+      // Translate text
       translate () {
         this.axios.get('https://translation.googleapis.com/language/translate/v2', {
           params: {
@@ -149,6 +171,46 @@
           .catch(function (error) {
             console.log(error)
           })
+      },
+      // Add translating to vocabulary
+      addToVocabulary () {
+        const newWord = {
+          text: this.inputText,
+          translate: this.outputText
+        }
+        let vocabularyTarget = 'en-uk'
+        if (this.outputLang.key === 'ru') {
+          vocabularyTarget = 'en-ru'
+        }
+        const targetVocabulary = this.vocabularies.find(el => el.title === vocabularyTarget)
+        if (targetVocabulary) {
+          targetVocabulary.translates.push(newWord)
+        } else {
+          this.vocabularies.push({
+            title: vocabularyTarget,
+            translates: [newWord]
+          })
+        }
+        const data = {
+          vocabularies: this.vocabularies
+        }
+        chrome.storage.local.set({'extension-data': data}, function () {})
+      },
+      // Remove translating from vocabulary
+      removeFromVocabulary () {
+        let targetVocabulary = this.vocabularies.find(el => el.title === `${this.inputLang.key}-${this.outputLang.key}`)
+        targetVocabulary.translates = targetVocabulary.translates.filter(el => el.text !== this.inputText)
+        const data = {
+          vocabularies: this.vocabularies
+        }
+        chrome.storage.local.set({'extension-data': data}, function () {})
+      },
+      isHasInVocabulary () {
+        return this.vocabularies.find(el => el.title === `${this.inputLang.key}-${this.outputLang.key}`) &&
+          this.vocabularies.find(el => el.title === `${this.inputLang.key}-${this.outputLang.key}`).translates.find(el => el.text === this.inputText)
+      },
+      isShowVocabularyButtons () {
+        return this.outputLang.key === 'uk' || this.outputLang.key === 'ru'
       }
     }
   }
@@ -179,5 +241,12 @@
     .extension-output-text{
         padding: 8px 0;
         font-size: 18px;
+    }
+    .extension-vocabulary{
+        color: rebeccapurple;
+        &:hover{
+            cursor: pointer;
+            color: lightblue;
+        }
     }
 </style>
