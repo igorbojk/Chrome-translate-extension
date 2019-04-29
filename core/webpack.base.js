@@ -8,7 +8,8 @@ let resolve = dir => path.join(__dirname, '..', 'src', dir)
 module.exports = {
   entry: {
     popup: resolve('./popup'),
-    content: resolve('./content')
+    content: resolve('./content'),
+    learnPage: resolve('./learnPage'),
   },
   output: {
     path: path.join(__dirname, '..', 'build'),
@@ -84,6 +85,7 @@ module.exports = {
     ]
   },
   plugins: [
+    htmlPage('home', 'app', ['manifest', 'vendor', 'learnPage']),
     htmlPage('popup', 'popup', ['manifest', 'vendor', 'popup']),
     new CopyWebpackPlugin([{ from: path.join(__dirname, '..', 'static') }]),
     new ChromeReloadPlugin({
